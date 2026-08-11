@@ -1,0 +1,32 @@
+<div id="map" class="h-[60vh] sm:h-[calc(100vh-64px)]"></div>
+
+<section class="h-[40vh] sm:fixed sm:w-[260px] bg-white sm:rounded sm:top-20 sm:left-10 p-5 z-9999 overflow-y-scroll">
+  <h2 class="text-xl font-bold text-black mb-2">Marcadores</h2>
+
+  <div class="flex flex-col gap-2">
+
+    @for (marker of markers(); track marker.id) {
+      <div class="form-control"
+        (click)="flyToMarker(marker.leafletMarker.getLatLng())"
+        (dblclick)="deleteMarker(marker)">
+        <label class="label cursor-pointer">
+           <span class="label-text text-black text-xs flex flex-col gap-0.5">
+          <span> {{ marker.leafletMarker.getLatLng().lat }}</span>
+          <span> {{ marker.leafletMarker.getLatLng().lng }}</span>
+      </span>
+          <input
+            type="radio"
+            name="radio-12"
+            checked="checked"
+            class="radio bg-red-100 border-red-300 checked:bg-red-200 checked:text-red-600 checked:border-red-600" />
+        </label>
+      </div>
+    } @empty {
+      <div class="flex justify-center items-center bg-blue-100 rounded py-5">
+        <p class="text-cs text-secondary">No hay marcadores</p>
+      </div>
+    }
+
+  </div>
+
+</section>
