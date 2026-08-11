@@ -1,0 +1,15 @@
+# Ignorar node_modules de todas las subcarpetas
+**/node_modules/
+
+# Ignorar carpetas de compilación
+**/dist/
+**/.angular/
+
+# Archivos de configuración local de editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
